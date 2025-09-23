@@ -1,13 +1,15 @@
 import json
+import webbrowser
+from menu_func import show_menu
 
-while True:    
-    print("\nGör ett av följande menyval:\n")
-    print("Menyval 1 - Val av aktivitet")
-    print("Menyval 2 - Distans")
-    print("Menyval 3 - Om mig")
-    print("Menyval 4 - Avsluta programmet")
+def rick_roll():
+    video_url = "https://www.youtube.com/watch?v=xm3YgoEiEDc&list=RDxm3YgoEiEDc&start_radio=1"
+    print("Öppnar webbläsaren...")
+    webbrowser.open(video_url)
 
-    menu = input ("\nVälj meny (1-4): ")
+while True:
+    show_menu()
+    menu = input ("\nVälj meny (1-5): ")
 
     if menu == "1":
         print("Vad tränade du idag?")
@@ -64,6 +66,9 @@ while True:
     elif menu == "4":
         print("\nPROGRAMMET AVSLUTAT...\n")
         break
+
+    elif menu == "5":
+        rick_roll()
 
     else:
         print("Du måste göra ett val mellan 1-4")
