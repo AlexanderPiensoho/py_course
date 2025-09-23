@@ -1,0 +1,71 @@
+import json
+
+while True:    
+    print("\nGör ett av följande menyval:\n")
+    print("Menyval 1 - Val av aktivitet")
+    print("Menyval 2 - Distans")
+    print("Menyval 3 - Om mig")
+    print("Menyval 4 - Avsluta programmet")
+
+    menu = input ("\nVälj meny (1-4): ")
+
+    if menu == "1":
+        print("Vad tränade du idag?")
+        training = input ("Fyll i om du utförde 'löpning' 'cykling' 'gym' ")
+
+        if training == 'löpning':
+            print("Hoppas du hade ett bra löppass!")
+
+        elif training == 'cykling':
+            print("Hoppas cykelpasset gick bra!")
+
+        elif training == 'gym':
+            print("Det är alltid bra att lyfta skrot!")
+
+        else:
+            print("Du måste välja 'löpning' cykling' eller 'gym'")
+        
+    elif menu == "2":
+        print("Hur långa var distansen på din cykling eller löpning?")
+        user_input_distance = input ("Fyll i aktivitet och distance, t.ex. löpning 8.4: ")
+        parts = user_input_distance.split()
+        
+        if len(parts) != 2:
+            print("Fel format! skriv t.ex. löpning 8.4")
+            continue
+        else: 
+            activity = parts[0].lower()
+            try:
+                distance = float(parts[1])
+            except ValueError:
+                print("Distansen måste vara en siffra")
+                continue
+
+            if activity == "cykling":
+                print(f"Du cyklade {distance}km, bra jobbat!")
+            elif activity == "löpning":
+                print(f"Du sprang {distance}km, Bra jobbat!")
+            else:
+                print("Mata in korrekt värde: t.ex. löpning 8.4")
+        
+    elif menu == "3":
+        print("===LÄSER IN INFORMATION===\n")
+        with open('first.json', 'r', encoding='utf-8') as fil:
+            data = json.load(fil)
+        print(f"Namn: {data['name']}")
+        print(f"Ålder: {data['ålder']}")
+        print(f"Stad: {data['stad']}")
+        print(f"Hobbies: {data['hobbies']}")
+        print(f"Favoritmat: {data['favoritmat']}")
+        print(f"Äger en bil: {'Ja' if data['har_bil']else 'Nej'}")
+        print(f"Äger ett husdjur: {'Ja' if data['har_husdjur']else 'Nej'}\n")
+        print("Dirigerar tillbaka till menyn.")
+
+    elif menu == "4":
+        print("\nPROGRAMMET AVSLUTAT...\n")
+        break
+
+    else:
+        print("Du måste göra ett val mellan 1-4")
+
+
