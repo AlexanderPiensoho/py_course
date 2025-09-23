@@ -7,13 +7,18 @@ def rick_roll():
     print("Öppnar webbläsaren...")
     webbrowser.open(video_url)
 
+def motivation():
+    url_motivation = "https://www.youtube.com/watch?v=OKN8dFO_ZLA"
+    print("Dags att bli motiverad")
+    webbrowser.open(url_motivation)
+
 while True:
     show_menu()
     menu = input ("\nVälj meny (1-5): ")
 
     if menu == "1":
         print("Vad tränade du idag?")
-        training = input ("Fyll i om du utförde 'löpning' 'cykling' 'gym' ")
+        training = input ("Fyll i om du utförde 'löpning' 'cykling' 'gym' eller behöver 'motivation': ")
 
         if training == 'löpning':
             print("Hoppas du hade ett bra löppass!")
@@ -23,6 +28,8 @@ while True:
 
         elif training == 'gym':
             print("Det är alltid bra att lyfta skrot!")
+        elif training == 'motivation':
+            motivation()
 
         else:
             print("Du måste välja 'löpning' cykling' eller 'gym'")
