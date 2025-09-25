@@ -61,13 +61,13 @@ while True:
         print("===LÄSER IN INFORMATION===\n")
         with open('first.json', 'r', encoding='utf-8') as fil:
             data = json.load(fil)
-        print(f"Namn: {data['name']}")
-        print(f"Ålder: {data['ålder']}")
-        print(f"Stad: {data['stad']}")
-        print(f"Hobbies: {data['hobbies']}")
-        print(f"Favoritmat: {data['favoritmat']}")
-        print(f"Äger en bil: {'Ja' if data['har_bil']else 'Nej'}")
-        print(f"Äger ett husdjur: {'Ja' if data['har_husdjur']else 'Nej'}\n")
+        print(f"Namn: {data["name"]}")
+        print(f"Ålder: {data["ålder"]}")
+        print(f"Stad: {data["stad"]}")
+        print(f"Hobbies: {data["hobbies"]}")
+        print(f"Favoritmat: {data["favoritmat"]}")
+        print(f"Äger en bil: {'Ja' if data["har_bil"]else 'Nej'}")
+        print(f"Äger ett husdjur: {'Ja' if data["har_husdjur"]else 'Nej'}\n")
         print("Dirigerar tillbaka till menyn.")
 
     elif menu == "4":
@@ -78,6 +78,6 @@ while True:
         rick_roll()
 
     else:
-        print("Du måste göra ett val mellan 1-4")
+        print("Du måste göra ett val mellan 1-5")
 
 
