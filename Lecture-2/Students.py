@@ -23,15 +23,16 @@ while menu_is_running:
             except ValueError:
                 print("Ålder måste vara en siffra")
                 continue
-
+        student_favorite = input("Vad är studentens favoritämne: ")
         student_info = {"namn" : student_name, 
-                        "ålder" : student_age
+                        "ålder" : student_age,
+                        "favoritämne" : student_favorite
                         }
         student_list.append(student_info)
             
     elif menu_choice == "2":
         menu_choice_func(menu_choice,": Ta bort en student")
-        remove_student = input ("Skriv det namn på studenten du vill ta bort: ")
+        remove_student = input ("Skriv namnet på studenten du vill ta bort: ")
 
         found = False
         for student in student_list:
@@ -45,7 +46,14 @@ while menu_is_running:
 
     elif menu_choice == "3":
         menu_choice_func(menu_choice,": Lista över studenter")
-        print(student_list)
+        if len(student_list) == 0:
+            print("Inga studenter är listade än!")
+        else:
+            print("===LISTA ÖVER ALLA STUDENTER===")
+            for student in student_list:
+                print(f"Namn: {student["namn"]} -- Ålder: {student["ålder"]} år -- Favoritämne: {student["favoritämne"]}")
+            print("==============================")
+        input ("Tryck Enter för att komma tillbaka till menyn...")
 
     elif menu_choice == "4":
         menu_choice_func(menu_choice,": Sök student")
@@ -67,7 +75,8 @@ while menu_is_running:
         for student in student_list:
             total_age = total_age + int(student["ålder"])
         avarage = total_age / len(student_list)
-        print(f"Genomsnittsåldern är {avarage}")
+        print(f"Genomsnittsåldern är {avarage}".upper())
+        input("Tryck Enter för att komma tillbaka till menyn...")
                     
 
     elif menu_choice == "6":

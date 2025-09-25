@@ -14,4 +14,4 @@ def menu_choice_func(menu_choice_number, menu_choice_string):
     choice_is_valid = int(menu_choice_number) in [1,2,3,4,5,6]
     if not choice_is_valid:
         print("felaktigt val")
-    print(f"Du have valt: {menu_choice_number}{menu_choice_string}")
+    print(f"Du har valt: {menu_choice_number}{menu_choice_string}")
