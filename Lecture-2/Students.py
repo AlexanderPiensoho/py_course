@@ -1,8 +1,6 @@
-from func_to_students import show_menu
-from func_to_students import menu_choice_func
+from func_to_students import show_menu, menu_choice_func
 
 
-    
 student_list =[]
 menu_is_running = True
 while menu_is_running:
