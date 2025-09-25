@@ -7,7 +7,7 @@ while menu_is_running:
     print("\n==HEJ OCH VÄLKOMMEN TILL STUDENTMENYN==")
     show_menu()
 
-    menu_choice = input("Gör ett val mellan 1-5: ".upper())
+    menu_choice = input("Gör ett val mellan 1-6: ".upper())
     if menu_choice == "1":
         menu_choice_func(menu_choice,": Lägg till student\n")
         student_name = input("Vad är studentens namn? ")
@@ -19,12 +19,22 @@ while menu_is_running:
         student_list.append(student_info)
         
         #print(student_info)
-
     elif menu_choice == "2":
+        menu_choice_func(menu_choice,": Ta bort en student")
+        remove_student = input ("Skriv det namn på studenten du vill ta bort: ")
+        for student in student_list:
+            if student["namn"] == remove_student:
+                student_list.remove(student)
+                print(f"Studenten {student} har tagits bort från listan")
+                break
+            else:
+                print("Ingen med det namnet hittades!")
+
+    elif menu_choice == "3":
         menu_choice_func(menu_choice,": Lista över studenter")
         print(student_list)
 
-    elif menu_choice == "3":
+    elif menu_choice == "4":
         menu_choice_func(menu_choice,": Sök student")
         search_student = input ("\nSök efter student, skriv ett förnamn: ")
 
@@ -32,7 +42,7 @@ while menu_is_running:
             if student["namn"] == search_student:
                 print(f"Student {student} finns i listan")
 
-    elif menu_choice == "4":
+    elif menu_choice == "5":
         menu_choice_func(menu_choice,": Räkna genomsnitlig ålder")
         total_age = 0
         for student in student_list:
@@ -40,11 +50,11 @@ while menu_is_running:
         avarage = total_age / len(student_list)
         print(f"Genomsnittsåldern är {avarage}")
 
-    elif menu_choice == "5":
+    elif menu_choice == "6":
         menu_choice_func(menu_choice,": Avsluta")
         print("\n==AVSLUTAR PROGRAMMET==\n")
         break
 
     else: 
-        print("Gör ett val mellan 1-5")
+        print("Gör ett val mellan 1-6")
     

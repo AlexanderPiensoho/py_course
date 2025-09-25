@@ -2,10 +2,11 @@
 def show_menu():
     print("\nGör ett av följande menyval:\n".upper())
     print("Menyval 1 - lägg till student".upper())
-    print("Menyval 2 - lista över studenter".upper())
-    print("Menyval 3 - Sök student".upper())
-    print("Menyval 4 - Räkna genomsnittlig ålder".upper())
-    print("Menyval 5 - avsluta".upper())
+    print("Menyval 2 - Ta bort en student".upper())
+    print("Menyval 3 - lista över studenter".upper())
+    print("Menyval 4 - Sök student".upper())
+    print("Menyval 5 - Räkna genomsnittlig ålder".upper())
+    print("Menyval 6 - avsluta".upper())
     pass
 
 # Den här funktionen hanterar menyval
