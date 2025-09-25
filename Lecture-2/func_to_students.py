@@ -7,11 +7,11 @@ def show_menu():
     print("Menyval 4 - Sök student".upper())
     print("Menyval 5 - Räkna genomsnittlig ålder".upper())
     print("Menyval 6 - avsluta".upper())
-    pass
+    
 
 # Den här funktionen hanterar menyval
 def menu_choice_func(menu_choice_number, menu_choice_string):
-    choice_is_valid = int(menu_choice_number) in [1,2,3,4,5]
+    choice_is_valid = int(menu_choice_number) in [1,2,3,4,5,6]
     if not choice_is_valid:
         print("felaktigt val")
     print(f"Du have valt: {menu_choice_number}{menu_choice_string}")
