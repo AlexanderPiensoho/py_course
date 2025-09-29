@@ -1,6 +1,8 @@
 from func_to_students import show_menu, menu_choice_func
 
-student_list =[]
+test_student1 = {"namn" : "Alexander", "ålder" : "30", "favoritämne" : ["programmering", "matte", "svenska"]}
+student_list =[test_student1]
+
 menu_is_running = True
 while menu_is_running:
     print("\n==HEJ OCH VÄLKOMMEN TILL STUDENTMENYN==")
@@ -9,12 +11,12 @@ while menu_is_running:
     menu_choice = input("\nGör ett val mellan 1-6: ".upper())
     if menu_choice == "1":
         menu_choice_func(menu_choice,": Lägg till student\n")
-        student_name = input("Vad är studentens namn? ")
+        new_student_name = input("Vad är studentens namn? ")
     
         while True:
-            student_age = input("Vad är studentens ålder? ")
+            new_student_age = input("Vad är studentens ålder? ")
             try:
-                age_number = int(student_age)
+                age_number = int(new_student_age)
                 if age_number < 0 or age_number > 120:
                     print("Felaktigt val: Välj en siffra mellan 0-120")
                     continue
@@ -23,11 +25,12 @@ while menu_is_running:
             except ValueError:
                 print("Ålder måste vara en siffra")
                 continue
-        student_favorite = input("Vad är studentens favoritämne: ")
-        student_info = {"namn" : student_name, 
-                        "ålder" : student_age,
-                        "favoritämne" : student_favorite
+        new_student_favorite = input("Vad är studentens favoritämne: ")
+        student_info = {"namn" : new_student_name, 
+                        "ålder" : new_student_age,
+                        "favoritämne" : []
                         }
+        student_info["favoritämne"].append(new_student_favorite)
         student_list.append(student_info)
             
     elif menu_choice == "2":
@@ -52,7 +55,9 @@ while menu_is_running:
             print("===LISTA ÖVER ALLA STUDENTER===")
             for student in student_list:
                 print(f"Namn: {student["namn"]} -- Ålder: {student["ålder"]} år -- Favoritämne: {student["favoritämne"]}")
-            print("==============================")
+                for subject in student["favoritämne"]:
+                    print(subject, end= "| ")
+        print("==============================")
         input ("Tryck Enter för att komma tillbaka till menyn...")
 
     elif menu_choice == "4":
