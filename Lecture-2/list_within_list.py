@@ -3,6 +3,7 @@ print(student_info_dict)
 
 favorite_subject = input ("Lägg till ett favoritämne: ")
 student_info_dict["favoritämnen"].append(favorite_subject)
+
 print(student_info_dict)
 student_list = [student_info_dict]
 

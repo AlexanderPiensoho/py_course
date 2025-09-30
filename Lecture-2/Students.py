@@ -54,22 +54,24 @@ while menu_is_running:
         else:
             print("===LISTA ÖVER ALLA STUDENTER===")
             for student in student_list:
-                print(f"Namn: {student["namn"]} -- Ålder: {student["ålder"]} år -- Favoritämne: {student["favoritämne"]}")
+                print(f"Namn: {student["namn"]} | Ålder: {student["ålder"]} år\nFavoritämnen: ")
                 for subject in student["favoritämne"]:
-                    print(subject, end= "| ")
-        print("==============================")
+                    print(subject, end= " | ")
+        print()
+        print("===========================================")
         input ("Tryck Enter för att komma tillbaka till menyn...")
 
     elif menu_choice == "4":
         menu_choice_func(menu_choice,": Sök student")
         search_student = input ("\nSök efter student, skriv ett förnamn: ")
-
+        
         for student in student_list:
             if student["namn"].lower() == search_student.lower():
-                print(f"Student {student} finns i listan")
+                print(f"Student {student['namn']} | {student['ålder']} år - finns i listan")
                 break
             else:
                 print(f"{search_student} finns inte i listan")
+        input ("Tryck Enter för att komma tillbaka till menyn...")
 
     elif menu_choice == "5":
         menu_choice_func(menu_choice,": Räkna genomsnitlig ålder")
