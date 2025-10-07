@@ -7,11 +7,13 @@ class Sensor:
 
     def __str__(self):
         return f"{self.type} | {self.level}"
-
+    
+    #Läser in värdet just nu med random, en int mellan 1, 100. 
     def read(self):
         self.level = random.randint(1, 100)
         return self.level
-
+    
+    #Läser av om värdet (threshold ex 70) är högre eller lägre än värdet just nu.
     def is_alarm_triggered(self, threshold):
         if self.level > threshold:
             return True
